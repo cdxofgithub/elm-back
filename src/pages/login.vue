@@ -8,10 +8,10 @@
         </div>
         <el-form :model="loginForm" :rules="rules" ref="loginForm">
           <el-form-item prop="username">
-            <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+            <el-input v-model="loginForm.username" @keyup.enter.native="submitForm('loginForm')" placeholder="请输入用户名"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input type="password" placeholder="密码" v-model="loginForm.password"></el-input>
+            <el-input type="password" placeholder="密码" @keyup.enter.native="submitForm('loginForm')" v-model="loginForm.password"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('loginForm')" class="submit_btn">登陆</el-button>
@@ -87,7 +87,7 @@
             return false;
           }
         })
-      }
+      },
     },
     watch: {
       adminInfo: function (newValue) {

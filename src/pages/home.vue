@@ -38,6 +38,8 @@
 
 <script>
   import headTop from '../components/headTop'
+  import dtime from 'time-formater'
+  import { userCount} from '../api/getData'
   export default {
     name: "home",
     data() {
@@ -54,6 +56,21 @@
     },
     components: {
       headTop
+    },
+    mounted() {
+      this.initData()
+    },
+    methods: {
+      async initData() {
+        console.log('-------------')
+        const today = dtime().format('YYYY-MM-DD')
+        console.log(today)
+        Promise.all([userCount(today)]).then(
+          res => {
+
+          }
+        )
+      }
     }
   }
 </script>

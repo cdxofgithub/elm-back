@@ -60,4 +60,7 @@
 
 <style scoped lang="less">
 @import "../style/mixin.less";
+.el-menu {
+  border-right: none;
+}
 </style>
